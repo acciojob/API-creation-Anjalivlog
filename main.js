@@ -26,6 +26,10 @@ const posts = [
 
 function getPostsByTags(tags) {
   // Implement this function
+  const tagArray = Array.isArray(tags) ? tags : [tags];
+  return posts.filter(post => 
+    post.tags.some(tag => tagArray.includes(tag))
+  )
 }
 
 app.get('/posts', (req, res) => {
