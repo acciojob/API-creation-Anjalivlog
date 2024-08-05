@@ -1,5 +1,3 @@
-Implement the getPostsByTags function in app.js:
-
 const express = require('express');
 const app = express();
 
@@ -26,7 +24,7 @@ const posts = [
 
 function getPostsByTags(tags) {
   // Implement this function
-  const tagArray = Array.isArray(tags) ? tags : [tags];
+  const tagArray = Array.isArray(tags) ? tags : tags.split(',');
   return posts.filter(post => 
     post.tags.some(tag => tagArray.includes(tag))
   )
